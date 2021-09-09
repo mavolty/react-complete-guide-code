@@ -12,14 +12,16 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      const response = await fetch(
+        'https://react-http-7ef0d-default-rtdb.asia-southeast1.firebasedatabase.app/'
+      );
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
 
       const data = await response.json();
 
-      const transformedMovies = data.results.map((movieData) => {
+      const transformedMovies = data.results.map(movieData => {
         return {
           id: movieData.episode_id,
           title: movieData.title,
